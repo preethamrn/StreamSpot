@@ -1,15 +1,15 @@
 class VotesController < ApplicationController
 	def create
-		vote = Vote.new(vote_params)
+		
+		# vote = Vote.new(vote_params)
 		# vote.user = current_user
-		if vote.save
+		# if vote.save
 			# do some stuff
-			ActionCable.server.broadcast 'votepool',
-				value: vote.value,
-				user: vote.user.twitch_username
-			head :ok
-		end
-		return false
+			# ActionCable.server.broadcast 'votepool',
+			# 	value: vote.value,
+			# 	user: vote.user.twitch_username
+			# head :ok
+		# end
 	end
 
 	private
