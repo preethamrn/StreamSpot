@@ -2,6 +2,6 @@
 
 class VotepoolChannel < ApplicationCable::Channel  
 	def subscribed
-		stream_from 'testvotepool'
+		stream_from 'votepool'
 	end
 end  

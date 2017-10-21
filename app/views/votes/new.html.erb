@@ -1,0 +1,6 @@
+<%= form_for Vote.new, remote: true, authenticity_token: true do |f| %>
+  <%= f.label :your_value %>:
+  <%= f.number_field :value%>
+
+  <%= f.submit "Vote!", class: "btn btn-primary", data: {send: "vote"} %>
+<% end %>

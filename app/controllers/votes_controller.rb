@@ -1,15 +1,14 @@
 class VotesController < ApplicationController
 	def create
-		message = Message.new(message_params)
-		message.user = current_user
-		if message.save
+		@vote = Vote.new
+		vote = vote.new(vote_params)
+		vote.user = current_user
+		if vote.save
 			# do some stuff
 			ActionCable.server.broadcast 'votepool',
-				message: message.value,
-				user: message.user.twitch_username
+				value: vote.value,
+				user: vote.user.twitch_username
 			head :ok
-		else 
-			redirect_to chatrooms_path
 		end
 	end
 
