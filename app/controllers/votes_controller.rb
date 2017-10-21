@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 	def create
-		vote = vote.new(vote_params)
-		vote.user = current_user
+		vote = Vote.new(vote_params)
+		# vote.user = current_user
 		if vote.save
 			# do some stuff
 			ActionCable.server.broadcast 'votepool',
@@ -9,11 +9,12 @@ class VotesController < ApplicationController
 				user: vote.user.twitch_username
 			head :ok
 		end
+		return false
 	end
 
 	private
 
 	def vote_params
-		params.require(:value)#.permit(:content, :chatroom_id)
+		params.require(:vote).permit(:value, :user_id)
 	end
 end
