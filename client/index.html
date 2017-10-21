@@ -29,13 +29,13 @@
 					width: 854,
 					height: 480,
 					channel: channelName,
-					layout: "video",
 					autoplay: false
 				});
 
 				embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
 					var player = embed.getPlayer();
 					twitch_embed.style.visibility = "visible";
+					alert('ready');
 					document.getElementById("twitch-parent").removeChild(document.getElementById("twitch-embed"));
 					twitch_embed.id = "twitch-embed";
 					player.play();
