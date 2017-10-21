@@ -1,0 +1,12 @@
+# config/cable.yml
+
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: redis://redistogo:4fd4c991cd8f2270bda5eae57fe5eac2@grouper.redistogo.com:10948/
+  channel_prefix: StreamSpot_production
