@@ -1,6 +1,5 @@
 class VotesController < ApplicationController
 	def create
-		@vote = Vote.new
 		vote = vote.new(vote_params)
 		vote.user = current_user
 		if vote.save
@@ -14,7 +13,7 @@ class VotesController < ApplicationController
 
 	private
 
-	def message_params
+	def vote_params
 		params.require(:value)#.permit(:content, :chatroom_id)
 	end
 end
